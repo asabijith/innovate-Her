@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Application Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="deco-images">
+            <img src="https://dl.dropbox.com/scl/fi/7g75yo05zfpi4tsb578le/design-thinking.png?rlkey=41r7ng20dsij9lr2zpbvz4atw&st=56diehxf&dl=0" class="deco-image" alt="Decoration">
+            <img src="https://dl.dropbox.com/scl/fi/v3qtpvjdirwfhcxs5glf2/woman-1.png?rlkey=27rfzh2yg5qhci89wy70inj19&st=v2ge320e&dl=0" class="deco-image" alt="Decoration">
+           
+            <img src="https://dl.dropbox.com/scl/fi/6e4zimd6sfky9aw4sejk2/scientist.png?rlkey=pf4al0c8c7bq9ag40x8pdv7bf&st=17t2qqn0&dl=0" class="deco-image" alt="Decoration">
+            <img src="https://dl.dropbox.com/scl/fi/xw4y23kpxuch5i09gpf0y/computer-engineer.png?rlkey=u0xn8gy6yb3win3wlxaxrf824&st=aec9bh8u&dl=0" class="deco-image" alt="">
+        </div>
+        <div class="headline">
+            <h2>Innovate Her<br>Exclusive Program For Women</h2>
+            <img src="https://dl.dropbox.com/scl/fi/945hsfptw728611vz761y/woman.png?rlkey=f31xgxs1kfo0l7l09pviol1a5&st=67n9cgu8&dl=0" alt="Women in Tech">
+        </div>
+        
+        <div id="applicationsCount" class="applications-count"></div>
+        <div id="alert" class="alert"></div>
+        <form id="applicationForm">
+            <div class="form-group">
+                <label for="name"><span class="icon-park-solid--edit-name"></span>Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="semester"><span class="tdesign--education-filled"></span>Current Semester</label>
+                <div class="dropdown-container">
+                    <div class="dropdown-header" id="dropdownHeader">
+                        Select Semester <span class="arrow-down">▼</span>
+                    </div>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li data-value="1">Semester 1</li>
+                        <li data-value="2">Semester 2</li>
+                        <li data-value="3">Semester 3</li>
+                        <li data-value="4">Semester 4</li>
+                        <li data-value="5">Semester 5</li>
+                        <li data-value="6">Semester 6</li>
+                        <li data-value="7">Semester 7</li>
+                        <li data-value="8">Semester 8</li>
+                    </ul>
+                    <input type="hidden" id="semester" name="semester" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="department"><span class="fluent-emoji-high-contrast--department-store"></span>Department</label>
+                <div class="dropdown-container1">
+                    <div class="dropdown-header" id="departmentDropdownHeader">
+                        Select Department <span class="arrow-down">▼</span>
+                    </div>
+                    <ul class="dropdown-menu1" id="departmentDropdownMenu">
+                        <li data-value="CSE">CS</li>
+                        <li data-value="ECE">CS (AI)</li>
+                        <li data-value="MECH">EC</li>
+                        <li data-value="CIVIL">EEE</li>
+                        <li data-value="EEE">CIVIL</li>
+                        <li data-value="CHEM">MECH</li>
+                        <li data-value="BIOTECH">MCA</li>
+                        <li data-value="ARCH">MBA</li>
+                    </ul>
+                    <input type="hidden" id="department" name="department" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone"><span class="solar--phone-line-duotone"></span>Contact Number</label>
+                <input type="tel" id="phone" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="email"><span class="mdi--email"></span>Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            <button type="submit" id="submitBtn">
+                Submit Application
+                <div class="loading-spinner" id="loadingSpinner"></div>
+            </button>
+        </form>
+        <div id="successMessage" class="success-message">
+            <h3>Application Received!</h3>
+            <p>Thank you for submitting your application</p>
+            <div class="venu">
+                <p><span class="ic--twotone-place"></span>venue - IEDC CELL</p>
+                <p><span class="icon-park-twotone--time"></span>Time - 2:55 to 3:50</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
